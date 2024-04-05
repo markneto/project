@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Sample Web Page</title>
+    <meta name="description" content="Sign in to access your account.">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://lunevedy.com/assets/2.0/css/lunevedy.min.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Line Awesome thin icons -->
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+ body {
+        position: relative;
+        background-image: url('assets/img/crowd-people.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    .container-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Altere a opacidade conforme necessário */
+        z-index: -1;
+    }
+        /* Estilos adicionais aqui, se necessário */
+    </style>
+</head>
+<body>
+
+    <nav class="theme-light">
+        <div class="container-menu">
+            <a href="#" class="brand">
+                <img src="assets/img/logo1.png" alt="Hi-life Arena website logo">
+            </a>
+    
+            <div class="container-menu-links">
+    
+                <!-- hamburger icon -->
+                <div class="nav-toggle" id="nav-toggle-btn">
+                    <div class="bar-1"></div>
+                    <div class="bar-2"></div>
+                    <div class="bar-3"></div>
+                </div>
+    
+                <!-- List of links -->
+                <ul class="links-wrapper">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="arena-info.html">The Arena</a></li>
+                    <li><a href="#next-events">Next Events</a></li>
+                    <li><a class="btn btn-solid btn-pill" id="btn-cta" href="signin.html"><span>Sign in</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+                </ul>
+    
+            </div><!-- closes container-menu-links -->
+        </div><!-- closes container-menu -->
+    </nav>
+
+    <!-- Sign In Form -->
+
+    <section class="theme-light text-center">
+        <div class="signin-form">
+            <h2>Sign In</h2>
+            <form action="/signin" method="POST">
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-solid btn-pill">Sign In <i class="fa-solid fa-chevron-right"></i></button>
+            </form>
+            <div class="signup-option">
+                Don't have an account? <a href="signup.html">Sign Up</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="theme-dark footer-3">
+        <div class="footer-cols-3 w-1356px">
+            <div class="col-3">
+                <a href="#" class="brand">
+                    <img src="assets/img/logo.png" alt="Sample website logo" style="width: 150px; height: 154px">
+                </a>
+
+                <h2>HI-LIFE Arena</h2>
+                <p>The best concert arena in Ireland.</p>
+
+                <ul class="footer-icons">
+                    <li><a href="https://www.instagram.com/hilifearena/"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://twitter.com/hilifearena"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="https://youtube.com/hilifearena"><i class="fa-brands fa-youtube"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="col-3">
+                <h3>Useful Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Get in touch</a></li>
+                    <li><a href="arena-info.html">About us</a></li>
+                    <li><a href="privacy.htm">Privacy</a></li>
+                </ul>
+            </div>
+
+            <div class="col-3">
+                <h3>Contact</h3>
+                <ul class="fa-ul footer-links">
+                    <li><span class="fa-li"><i class="fa-solid fa-location-dot"></i></span> <address>Merrion Rd, Ballsbridge, Dublin 4,<br>Ireland. D04 AK83.</address></li>
+                    <li><span class="fa-li"><i class="fa-solid fa-phone"></i></span> <a href="tel:123-456-7890">123-456-7890</a></li>
+                    <li><span class="fa-li"><i class="fa-brands fa-whatsapp"></i></span> <a href="https://wa.me/1XXXXXXXXXXWhatsApp">WhatsApp</a></li>
+                    <li><span class="fa-li"><i class="fa-solid fa-envelope"></i></span> <a href="mailto:info@emailaddress.com">info@emailaddress.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2024 HI-LIFE ARENA. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://lunevedy.com/assets/js/lunevedy.js"></script>
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+
+        const firebaseConfig = {
+        apiKey: "AIzaSyC2F1tg40ur_PrwxWVtVLqhwhMrfX0aLsY",
+        authDomain: "hi-life-arena.firebaseapp.com",
+        projectId: "hi-life-arena",
+        storageBucket: "hi-life-arena.appspot.com",
+        messagingSenderId: "454395537519",
+        appId: "1:454395537519:web:9e3d84168acd40d1b0859a",
+        measurementId: "G-872E1E12S8" 
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app); // Initialize Firebase Auth
+
+        // Wait for the DOM to be fully loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            // Add event listener to the sign-in form
+            document.querySelector('form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                signInWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        // Redirect to the home page
+                        window.location.href = "index.html"; // Adjust the path as needed
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        // Show error message to your user
+                        console.error("Error in user sign in:", errorCode, errorMessage);
+                    });
+            });
+        });
+    </script>
+
+</body>
+</html>
