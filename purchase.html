@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Plan - More Info</title>
-    <meta name="description" content="Learn more about Simple Plan and their tour.">
+    <title>Purchase - Beyoncé Ticket Sales</title>
+    <meta name="description" content="Purchase tickets for Beyoncé's Cowboy Carter Tour.">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://lunevedy.com/assets/2.0/css/lunevedy.min.css" />
@@ -19,126 +20,76 @@
     <!-- Font Awesome and Line Awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    
-    <!-- Inline CSS for custom styling -->
+
     <style>
-        body {
-            font-family: 'Playfair Display', serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
+        /* Add your custom styles here */
+        #paymentForm input[type="text"] {
+            margin-bottom: 10px;
+            width: 200px; /* Adjust width as needed */
         }
-
-        header.theme-dark {
-            background-color: #333;
-            color: white;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-        }
-
-        .container {
-            max-width: 1140px;
-            margin: auto;
-            padding: 0 15px;
-        }
-
-        h1, h2, h3 {
-            color: #333;
-        }
-
-        img.band-photo {
-            max-width: 50%;
-            height: auto;
+    
+        #paymentForm label {
             display: block;
-            margin: 20px auto;
         }
-
-        section.theme-light {
-            background-color: white;
-            padding: 20px 0;
-            margin-bottom: 2rem;
-        }
-
-        footer.theme-dark {
-            background-color: #333;
-            color: white;
-            padding: 20px 0;
-        }
-
-        footer.theme-dark a {
-            color: white;
-            text-decoration: none;
-        }
-
-        footer.theme-dark a:hover {
-            text-decoration: underline;
-        }
-
-        /* Additional custom styles */
     </style>
+
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+<script src="ticket.js" type="module"></script>
+
 </head>
 
-
 <body>
-
+    <!-- Navbar -->
     <nav class="theme-light">
         <div class="container-menu">
             <a href="index.html" class="brand">
                 <img src="assets/img/logo1.png" alt="Hi-life Arena website logo">
             </a>
-    
             <div class="container-menu-links">
-    
-                <!-- hamburger icon -->
                 <div class="nav-toggle" id="nav-toggle-btn">
                     <div class="bar-1"></div>
                     <div class="bar-2"></div>
                     <div class="bar-3"></div>
                 </div>
-    
-                <!-- List of links -->
                 <ul class="links-wrapper">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="arena-info.html">The Arena</a></li>
                     <li><a href="#next-events">Next Events</a></li>
                     <li><a class="btn btn-solid btn-pill" id="btn-cta" href="signin.html"><span>Sign in</span> <i class="fa-solid fa-chevron-right"></i></a></li>
                 </ul>
-    
-            </div><!-- closes container-menu-links -->
-        </div><!-- closes container-menu -->
+            </div>
+        </div>
     </nav>
 
-    <header class="theme-dark text-center">
-        <h1>Simple Plan</h1>
-        <p>The journey of the iconic band and their return to Ireland on 15/07/2024.</p>
-    </header>
-
+    <!-- Main content -->
     <main>
         <section class="theme-light">
-            <div class="container text-center">
-                <img src="assets/img/simpleplan.png" alt="Simple Plan" class="band-photo">
-                <h2>Hard as Rock Tour</h2>
-                <p>After a thrilling 15 years, Simple Plan is making a comeback with their "Hard as Rock" tour. Known for their energetic performances and catchy melodies, the band plans to bring an unforgettable night of music to Ireland. Get ready to experience the magic of live music once again with Simple Plan.</p>
-                <p>Tickets will be on sale soon. Stay tuned for an announcement on our website and make sure you don't miss out on the opportunity to see Simple Plan live.</p>
+            <div class="container-cols">
+                <div class="col-visual">
+                    <!-- Placeholder for sector images -->
+                    <img src="assets/img/sector_placeholder.jpg" alt="Sector Image">
+                </div>
+                <div class="col-text">
+                    <h2>Selected Sector: Block I</h2>
+                   
+                    <form id="paymentForm">
+                        <label for="cardNumber">Card Number:</label>
+                        <input type="text" id="cardNumber" name="cardNumber" maxlength="16"><br>
+                    
+                        <label for="expDate">Expiration Date:</label>
+                        <input type="text" id="expDate" name="expDate" pattern="\d{2}/\d{2}" maxlength="5" placeholder="MM/YY"><br>
+                    
+                        <label for="cvv">CVV:</label>
+                        <input type="text" id="cvv" name="cvv" maxlength="3"><br>
+                        <div class="container-btn">
+                            <button type="submit" class="btn btn-solid"><span>Pay Now</span><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </section>
-
-    <section class="theme-light">
-        <div class="container">
-            <h3>About Simple plan</h3>
-            <p> </p>
-           <p> Simple Plan is a Canadian rock band from Montreal, Quebec. Formed in 1999, the band's current lineup consists of Pierre Bouvier (lead vocals, studio bass guitar), Chuck Comeau (drums), Jeff Stinco (lead guitar), and Sébastien Lefebvre (rhythm guitar, backing vocals). David Desrosiers (bass guitar, backing vocals) joined the band in early 2000 and left in July 2020 due to sexual misconduct accusations.[1]
-
-            The band has released six studio albums: No Pads, No Helmets...Just Balls (2002), Still Not Getting Any... (2004), Simple Plan (2008), Get Your Heart On! (2011), Taking One for the Team (2016), and Harder Than It Looks (2022).[2] The band has also released an EP titled Get Your Heart On – The Second Coming! (2013), in addition to two live albums: Live in Japan 2002 (2003) and MTV Hard Rock Live (2005).
-            
-            The band performed at the Vans Warped Tour every year from 1999 to 2005, and in 2011, 2013, 2015, and 2018.[3][4][5] The band also performed at the 2010 Winter Olympics closing ceremony in Vancouver,[6] along with The X Factor Australia.[7] In December 2012, the band performed at Mood Indigo, the college festival of IIT Bombay in Mumbai, India.[8][9] In 2004, the band appeared as themselves in the film New York Minute, starring the Olsen twins, Mary-Kate and Ashley. Simple Plan also performed "O Canada" at the 2016 NHL Winter Classic. Additionally, they performed the theme music for, and were featured on an episode of, What's New, Scooby-Doo?.
-       
-       read more on: https://en.wikipedia.org/wiki/Simple_Plan
-        </p> 
-        </div>
-    </section>
-</main>
+    </main>
 
     <!-- Footer -->
     <footer class="theme-dark footer-3">
@@ -177,8 +128,48 @@
         <div class="copyright">
             <p>Copyright © 2024 HI-LIFE ARENA. All rights reserved.</p>
         </div>
-</footer>
+    </footer>
 
+    
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            // Fake payment processing
+            alert("Congratulations, YOU ARE IN!  your ticket has been purchased. You will receive your ticket via email within 24 hours before the event.Thank you!");
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectedSector = localStorage.getItem('selectedSector');
+            if (selectedSector) {
+                document.querySelector('h2').textContent = 'Selected Sector: ' + selectedSector;
+    
+                // Load images based on the selected sector
+                const imgContainer = document.querySelector('.col-visual');
+                imgContainer.innerHTML = ''; // Clear any existing content
+                for (let i = 1; i <= 3; i++) {
+                    const img = document.createElement('img');
+                    img.src = `assets/img/beyonce/${selectedSector.replace(/\s/g, '')}/${i}.jpg`;
+                    img.alt = `Image ${i} of ${selectedSector}`;
+                    imgContainer.appendChild(img);
+                }
+            }
+
+            // Handle form submission
+            document.getElementById('paymentForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent form submission
+                // Fake payment processing
+                alert("Congratulations, your ticket has been purchased. You will receive your ticket via email within 24 hours.");
+                // Clear localStorage
+                localStorage.removeItem('selectedSector');
+                // Redirect to the home page
+                window.location.href = 'index.html';
+            });
+        });
+    </script>
+
+    
 
 </body>
+
 </html>

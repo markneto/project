@@ -21,15 +21,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+    <script src="ticket.js" type="module"></script>
+    
+
     <style>
         /* Custom CSS styles */
         /* Diminuir o tamanho da imagem do mapa de assentos */
         .col-visual img {
-            width: 110%; /* Aumentar em 25% o tamanho da imagem */
-            max-width: 110%;
+            width: 115%; /* Aumentar em 10% o tamanho da imagem */
+            max-width: 115%;
             height: auto;
         }
-
         /* Estilizar caixa de seleção do formulário */
         select {
             font-size: 16px; /* Aumentar o tamanho da fonte */
@@ -38,29 +43,24 @@
             width: 100%; /* Garantir que ocupe toda a largura */
             margin-bottom: 10px; /* Adicionar espaço abaixo */
         }
-
         /* Estilizar botão do formulário */
         .container-btn {
             margin-top: 10px; /* Adicionar espaço acima */
         }
-
         /* Adicionar espaço entre o formulário e o botão */
         .container-btn .btn {
             margin-top: 10px; /* Adicionar espaço acima */
         }
-
         /* Posicionar o formulário e o botão ao lado direito da imagem */
         .container-cols {
             display: flex;
             justify-content: flex-start;
             align-items: flex-start;
         }
-
         .col-text {
             flex: 1;
             margin-right: 20px;
         }
-
         .col-visual {
             flex: 1;
         }
@@ -68,14 +68,12 @@
 </head>
 
 <body>
-
     <!-- Navbar -->
     <nav class="theme-light">
         <div class="container-menu">
-            <a href="#" class="brand">
+            <a href="index.html" class="brand">
                 <img src="assets/img/logo1.png" alt="Hi-life Arena website logo">
             </a>
-
             <div class="container-menu-links">
                 <!-- hamburger icon -->
                 <div class="nav-toggle" id="nav-toggle-btn">
@@ -83,7 +81,6 @@
                     <div class="bar-2"></div>
                     <div class="bar-3"></div>
                 </div>
-
                 <!-- List of links -->
                 <ul class="links-wrapper">
                     <li><a href="index.html">Home</a></li>
@@ -96,15 +93,19 @@
     </nav>
 
     <!-- Header -->
+    <header class="theme-dark text-center">
+        <h1>Beyoncé</h1>
+        <p>Cowboy Carter Tour.</p>
+    </header>
+
     <header class="theme-light cols-2-half text-center-mobile">
         <div class="container-cols">
             <div class="col-text">
-                <h1>Beyoncé</h1>
-                <h2>Cowboy Carter Tour 25/04/2024.</h2>
+
+                <h2>Cowboy Carter Tour HI-LIFE Arena 25/04/2024.</h2>
                 <p>The iconic global superstar, Beyoncé, is bringing her highly anticipated Cowboy Carter Tour to Ireland. Known for her powerful performances and unparalleled stage presence, Beyoncé promises a show that is both visually stunning and musically thrilling. The tour promotes her latest album "Cowboy Carter", marking a new chapter in her career as an artist.</p>
                 <p>Tickets for the concert are already on sale. Secure yours for an unforgettable evening with Beyoncé.</p>
             </div>
-
             <div class="col-visual">
                 <figure>
                     <img src="assets/img/beyonceccposter1.png" alt="Beyoncé Cowboy Carter Tour Poster">
@@ -127,28 +128,27 @@
                     <form id="ticketForm">
                         <label for="sector">Select Sector:</label>
                         <select id="sector" name="sector">
-                            <option value="VIP1">VIP1 (Standing)</option>
-                            <option value="VIP2">VIP2 (Standing)</option>
-                            <option value="GA">GA (Standing)</option>
-                            <option value="Lounge Front Stage">Lounge Front Stage (seating)</option>
-                            <option value="Lounge A">Lounge A (seating)</option>
-                            <option value="Lounge B ">Lounge B (seating)</option>
-                            <option value="Block A">Block A (seating)</option>
-                            <option value="Block B">Block B (seating)</option>
-                            <option value="Block C">Block C (seating)</option>
-                            <option value="Block D">Block D (seating)</option>
-                            <option value="Block E">Block E (seating)</option>
-                            <option value="Block F">Block F (seating)</option>
-                            <option value="Block G">Block G (seating)</option>
-                            <option value="Block H">Block H (seating)</option>
-                            <option value="Block I">Block I (seating)</option>
-                            <option value="Block J">Block J (seating)</option>
-                            <option value="Block K">Block K (seating)</option>
-                            <option value="Block L">Block L (seating)</option>
-                            <option value="Block M">Block M (seating)</option>
-                            <option value="Block N">Block N (seating)</option>
+                            <option value="VIP1 (Standing)">VIP1 (Standing)</option>
+                            <option value="VIP2 (Standing)">VIP2 (Standing)</option>
+                            <option value="GA (Standing)">GA (Standing)</option>
+                            <option value="Lounge Front Stage (seating)">Lounge Front Stage (seating)</option>
+                            <option value="Lounge A (seating)">Lounge A (seating)</option>
+                            <option value="Lounge B (seating)">Lounge B (seating)</option>
+                            <option value="Block A (seating)">Block A (seating)</option>
+                            <option value="Block B (seating)">Block B (seating)</option>
+                            <option value="Block C (seating)">Block C (seating)</option>
+                            <option value="Block D (seating)">Block D (seating)</option>
+                            <option value="Block E (seating)">Block E (seating)</option>
+                            <option value="Block F (seating)">Block F (seating)</option>
+                            <option value="Block G (seating):">Block G (seating):</option>
+                            <option value="Block H (seating)">Block H (seating)</option>
+                            <option value="Block I (seating)">Block I (seating)</option>
+                            <option value="Block J (seating)">Block J (seating)</option>
+                            <option value="Block K (seating)">Block K (seating)</option>
+                            <option value="Block L (seating)">Block L (seating)</option>
+                            <option value="Block M (seating)">Block M (seating)</option>
+                            <option value="Block N (seating)">Block N (seating)</option>
                         </select><br>
-
                         <label for="quantity">Select Quantity (max 4):</label>
                         <select id="quantity" name="quantity">
                             <option value="1">1</option>
@@ -156,9 +156,9 @@
                             <option value="3">3</option>
                             <option value="4">4</option>
                         </select><br>
-
                         <div class="container-btn">
-                            <a href="#" class="btn btn-solid"><span>Find Tickets</span><i class="fas fa-shopping-cart"></i></a>
+                            <button type="button" id="findTickets" class="btn btn-solid"><span>Find Tickets</span><i class="fas fa-shopping-cart"></i></button>
+
                         </div>
                     </form>
                 </div>
@@ -181,7 +181,6 @@
                     <li><a href="https://youtube.com/hilifearena"><i class="fa-brands fa-youtube"></i></a></li>
                 </ul>
             </div>
-
             <div class="col-3">
                 <h3>Useful Links</h3>
                 <ul class="footer-links">
@@ -191,7 +190,6 @@
                     <li><a href="privacy.htm">Privacy</a></li>
                 </ul>
             </div>
-
             <div class="col-3">
                 <h3>Contact</h3>
                 <ul class="fa-ul footer-links">
@@ -206,13 +204,7 @@
             <p>Copyright © 2024 HI-LIFE ARENA. All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- JavaScript -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
-    <script>
-        // Adicione o seu JavaScript aqui
-    </script>
+    
 </body>
 
 </html>
