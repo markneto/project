@@ -27,6 +27,9 @@
     <script src="ticket.js" type="module"></script>
     
 
+
+    
+
     <style>
         /* Custom CSS styles */
         /* Diminuir o tamanho da imagem do mapa de assentos */
@@ -204,7 +207,27 @@
             <p>Copyright © 2024 HI-LIFE ARENA. All rights reserved.</p>
         </div>
     </footer>
-    
+    <script type="module">
+
+		import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+		import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
+
+		const firebaseConfig = {
+		  apiKey: "AIzaSyC2F1tg40ur_PrwxWVtVLqhwhMrfX0aLsY",
+		  authDomain: "hi-life-arena.firebaseapp.com",
+		  projectId: "hi-life-arena",
+		  storageBucket: "hi-life-arena.appspot.com",
+		  messagingSenderId: "454395537519",
+		  appId: "1:454395537519:web:9e3d84168acd40d1b0859a",
+		  measurementId: "G-872E1E12S8",
+          databaseURL: "https://hi-life-arena-default-rtdb.europe-west1.firebasedatabase.app"
+		};
+	  
+		// Initialize Firebase
+		const app = initializeApp(firebaseConfig);
+		const analytics = getAnalytics(app);
+	  </script>
+
 </body>
 
 </html>

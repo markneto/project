@@ -22,15 +22,62 @@
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
     <style>
-        /* Add your custom styles here */
-        #paymentForm input[type="text"] {
-            margin-bottom: 10px;
-            width: 200px; /* Adjust width as needed */
+        /* Estilos adicionados aqui */
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px; /* Espaço entre as imagens */
+            padding: 10px; /* Espaço ao redor das imagens dentro do carrossel */
         }
-    
+
+        .carousel img {
+            max-width: 100%; /* As imagens devem ser responsivas */
+            border: 2px solid #ddd; /* Borda para as imagens */
+            border-radius: 5px; /* Bordas arredondadas */
+        }
+
+        .selected-sector-info h2 {
+            color: #333; /* Cor do título */
+            margin-bottom: 0.5em; /* Espaço abaixo do título */
+        }
+
+        .selected-sector-info p {
+            color: #666; /* Cor da descrição */
+            margin-bottom: 1em; /* Espaço abaixo da descrição */
+        }
+
+        #paymentForm {
+            max-width: 300px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
         #paymentForm label {
-            display: block;
+            margin-bottom: 0.5em;
         }
+
+        #paymentForm input[type="text"],
+        #paymentForm button {
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Estilização do carrossel */
+        .carousel img {
+            width: 100%; /* Ajusta as imagens para ocuparem o espaço disponível */
+            object-fit: cover; /* Garante que as imagens cubram o espaço sem distorcer */
+            height: 150px; /* Define uma altura fixa para as imagens do carrossel */
+        }
+
+        /* Centro do título do setor e do carrossel */
+        .selected-sector-info,
+        .carousel {
+            text-align: center;
+        }
+
     </style>
 
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
@@ -65,14 +112,19 @@
     <!-- Main content -->
     <main>
         <section class="theme-light">
-            <div class="container-cols">
-                <div class="col-visual">
-                    <!-- Placeholder for sector images -->
-                    <img src="assets/img/sector_placeholder.jpg" alt="Sector Image">
+            <div class="container">
+                <!-- Título do setor -->
+                <h2 id="selectedSectorTitle">Selected Sector: </h2>
+                <!-- Carrossel -->
+                <div id="sectorCarousel" class="carousel">
+                    <!-- As imagens do carrossel serão adicionadas aqui pelo JavaScript -->
                 </div>
-                <div class="col-text">
-                    <h2>Selected Sector: Block I</h2>
-                   
+                
+                <div id="totalPriceContainer">
+                    <!-- The total price will be displayed here -->
+                    <h3>Total Price: <span id="totalPrice"></span> euros</h3>
+                </div>
+
                     <form id="paymentForm">
                         <label for="cardNumber">Card Number:</label>
                         <input type="text" id="cardNumber" name="cardNumber" maxlength="16"><br>
@@ -141,34 +193,32 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const selectedSector = localStorage.getItem('selectedSector');
-            if (selectedSector) {
-                document.querySelector('h2').textContent = 'Selected Sector: ' + selectedSector;
+            const selectedQuantity = parseInt(localStorage.getItem('selectedQuantity'), 10);
+            const ticketPrice = parseFloat(localStorage.getItem('ticketPrice'));
+            
+            const sectorTitleElement = document.getElementById('selectedSectorTitle');
+            const sectorCarouselElement = document.getElementById('sectorCarousel');
+            const totalPriceElement = document.getElementById('totalPrice');
+            
+            if (selectedSector && !isNaN(selectedQuantity) && !isNaN(ticketPrice)) {
+                sectorTitleElement.textContent = `Selected Sector: ${selectedSector}`;
+                totalPriceElement.textContent = `Total Price: ${(ticketPrice * selectedQuantity).toFixed(2)} euros`;
+                
+                // Nome do setor sem espaços para corresponder ao nome dos arquivos de imagem
+                const imagePrefix = selectedSector.replace(/\s/g, '');
     
-                // Load images based on the selected sector
-                const imgContainer = document.querySelector('.col-visual');
-                imgContainer.innerHTML = ''; // Clear any existing content
                 for (let i = 1; i <= 3; i++) {
-                    const img = document.createElement('img');
-                    img.src = `assets/img/beyonce/${selectedSector.replace(/\s/g, '')}/${i}.jpg`;
-                    img.alt = `Image ${i} of ${selectedSector}`;
-                    imgContainer.appendChild(img);
+                    const imgElement = document.createElement('img');
+                    imgElement.src = `assets/img/beyonce/${imagePrefix}-pic${i}`;
+                    imgElement.alt = `Image of ${selectedSector} ${i}`;
+                    sectorCarouselElement.appendChild(imgElement);
                 }
+            } else {
+                sectorTitleElement.textContent = 'Selected Sector: Not Found';
+                console.error('No sector was selected');
             }
-
-            // Handle form submission
-            document.getElementById('paymentForm').addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent form submission
-                // Fake payment processing
-                alert("Congratulations, your ticket has been purchased. You will receive your ticket via email within 24 hours.");
-                // Clear localStorage
-                localStorage.removeItem('selectedSector');
-                // Redirect to the home page
-                window.location.href = 'index.html';
-            });
         });
     </script>
-
-    
 
 </body>
 

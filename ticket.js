@@ -2,6 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
 import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-database.js"
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyC2F1tg40ur_PrwxWVtVLqhwhMrfX0aLsY",
     authDomain: "hi-life-arena.firebaseapp.com",
@@ -16,74 +17,53 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
-// Function to check ticket availability in a specific sector
+// Função para verificar a disponibilidade de ingressos em um setor específico
 function checkTicketAvailability(sector) {
-    const sectorRef = ref(database, `sectors/${sector}`);
-
-    // Query the database to get the number of available tickets in the sector
-    return new Promise((resolve, reject) => {
-        get(sectorRef).then((snapshot) => {
-            if (snapshot.exists()) {
-                const data = snapshot.val();
-                const ticketsAvailable = data.availableTickets; // Assuming `data` is an object with this structure
-                resolve(ticketsAvailable);
-            } else {
-                reject(new Error("Sector not found"));
-            }
-        }).catch((error) => {
-            reject(error);
-        });
-    });
+  const sectorRef = ref(database, `sectors/${sector}`);
+  
+  return get(sectorRef).then((snapshot) => {
+    if (snapshot.exists()) {
+      return snapshot.val();
+    } else {
+      throw new Error("Sector not found");
+    }
+  });
 }
 
-// Function to purchase tickets in a specific sector
+// Função para comprar ingressos em um setor específico
 function buyTickets(sector, quantity) {
-    const sectorRef = ref(database, `sectors/${sector}`);
-
-    // Check the availability of tickets in the sector
-    checkTicketAvailability(sector).then((ticketsAvailable) => {
-        // Check if there are enough available tickets
-        if (quantity > ticketsAvailable) {
-            throw new Error("Not enough tickets available");
-        }
-
-        // Update the number of available tickets in the sector after the purchase
-        return get(sectorRef); // First, get the current data
-    }).then((snapshot) => {
-        if (snapshot.exists()) {
-            const data = snapshot.val();
-            const updatedTicketsAvailable = data.availableTickets - quantity;
-
-            // Then, set the updated number of tickets
-            return set(sectorRef, { ...data, availableTickets: updatedTicketsAvailable });
-        } else {
-            throw new Error("Sector not found");
-        }
-    }).then(() => {
-        // The purchase was successful
-        console.log(`The purchase of ${quantity} tickets for the sector ${sector} was successful`);
+  const sectorRef = ref(database, `sectors/${sector}`);
+  
+  checkTicketAvailability(sector).then((data) => {
+    if (quantity > data.availableTickets) {
+      throw new Error("Not enough tickets available");
+    }
     
- // Store the selected sector in localStorage
- localStorage.setItem('selectedSector', sector);
- 
-        // Redirect the user to the purchase page
-        window.location.href = 'purchase.html';
-    }).catch((error) => {
-        // Handle errors during the purchase process
-        console.error("Failed to purchase tickets:", error.message);
-        // Show an error message to the user
-        alert(error.message);
-    });
+    const updatedTicketsAvailable = data.availableTickets - quantity;
+    
+    // Armazenar dados necessários no localStorage
+    localStorage.setItem('selectedSector', sector);
+    localStorage.setItem('selectedQuantity', quantity);
+    localStorage.setItem('ticketPrice', data.ticketPrice);
+    
+    // Atualizar o banco de dados
+    return set(sectorRef, { ...data, availableTickets: updatedTicketsAvailable });
+  }).then(() => {
+    // Compra foi bem-sucedida, redirecionar para a página de compra
+    window.location.href = 'purchase.html';
+  }).catch((error) => {
+    console.error(error);
+    alert(error.message);
+  });
 }
 
-
-// Export the necessary functions for use in other files
-export { checkTicketAvailability, buyTickets };
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementById('findTickets').addEventListener('click', function() {
-        const sector = document.getElementById('sector').value;
-        const quantity = parseInt(document.getElementById('quantity').value, 10);
-        buyTickets(sector, quantity);
-    });
+// Configurar evento de clique do botão para iniciar a compra
+document.addEventListener('DOMContentLoaded', () => {
+  const findTicketsButton = document.getElementById('findTickets');
+  findTicketsButton.addEventListener('click', () => {
+    const sector = document.getElementById('sector').value;
+    const quantity = parseInt(document.getElementById('quantity').value, 10);
+    
+    buyTickets(sector, quantity);
+  });
 });
