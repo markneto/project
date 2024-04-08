@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - 3Arena</title>
+    <link rel="stylesheet" href="assets/css/lu.min.css" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <style>
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .about-text {
+            text-align: justify;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            .about-text {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="theme-light">
+        <div class="container-menu">
+            <a href="index.html" class="brand">
+                <img src="assets/img/logo1.png" alt="Hi-life Arena website logo">
+            </a>
+    
+            <div class="container-menu-links">
+    
+                <!-- hamburger icon -->
+                <div class="nav-toggle" id="nav-toggle-btn">
+                    <div class="bar-1"></div>
+                    <div class="bar-2"></div>
+                    <div class="bar-3"></div>
+                </div>
+    
+                <!-- List of links -->
+                <ul class="links-wrapper">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="arena-info.html">The Arena</a></li>
+                    <li><a href="#next-events">Next Events</a></li>
+                    <li><a class="btn btn-solid btn-pill" id="btn-cta" href="signin.html"><span>Sign in</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+                </ul>
+    
+            </div><!-- closes container-menu-links -->
+        </div>
+    </nav>
+
+
+    <!-- Main content -->
+    <main class="theme-light">
+        <div class="container">
+            <h1>About HI-LIFE Arena</h1>
+            <p>The 3Arena (originally The O2) is an indoor amphitheatre located at North Wall Quay in the Dublin Docklands in Dublin, Ireland. The venue opened as The O2 on 16 December 2008 and was re-branded on 4 September 2014 due to the takeover of O2 Ireland by Three Ireland. The venue is owned by a Live Nation subsidiary, Apollo Leisure Group Ltd.[2] and is among the top ten busiest music arenas by ticket sales in the world.[3]</p>
+            <p>The furthest seat is 60 metres from the stage, 20 metres closer than in The Point. This was achieved by arranging the seats around the stage in a gigantic "fan" formation which the architects likened to the Colosseum of Rome. There are no corporate boxes inside the venue. The backstage area has a "substantial" loading bay for trucks.[7] Alcohol is available in a high-security area of the venue in an effort to curb under-age drinking.[8] Prior to re-development, the seating capacity was 6,300 or 8,500 standing.
+
+                Mike Adamson (CEO of Live Nation Ireland) claimed that Irish fans had been short-changed when attending major events in the previous venue due to size restrictions. "It wasn't always possible to get every show touring in Europe into the venue because of restrictions. It is now. Some shows couldn't fit. For example, George Michael could only stage three-quarters of his production in the Point. We're up there now with other venues in Europe." Developer Harry Crosbie said that the Point had had a "grungy" feel "which suited Dublin at the time". He claimed that it would be a "stunning venue" created for a more "sophisticated" audience.</p>
+            </div>
+            
+            <div class="gallery">
+                <!-- Placeholder for images -->
+                <img src="assets/img/about/hilifeconcept.png" alt="3Arena Image 1">
+                <img src="assets/img/about/Arena3.png" alt="Arena Image 2">
+                <img src="assets/img/about/Arena4.png" alt="Arena Image 3">
+                <img src="assets/img/about/Arena1.png" alt="Arena Image 4">
+                <img src="assets/img/about/Arena2.png" alt="Arena Image 5">
+                <img src="assets/img/about/crowd-people.png" alt="Arena Image 6">
+            
+        </div>
+    </main>
+
+    <!-- Footer here -->
+
+    <footer class="theme-dark footer-3">
+        <div class="footer-cols-3 w-1356px">
+            <div class="col-3">
+                <a href="#" class="brand">
+                    <img src="assets/img/logo.png" alt="HI-LIFE Arena logo" style="width: 150px; height: 154px">
+                </a>
+                <h2>HI-LIFE Arena</h2>
+                <p>The premier concert venue in Ireland.</p>
+                <ul class="footer-icons">
+                    <li><a href="https://www.instagram.com/hilifearena/"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="https://twitter.com/hilifearena"><i class="fa-brands fa-twitter"></i></a></li>
+                    <li><a href="https://youtube.com/hilifearena"><i class="fa-brands fa-youtube"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-3">
+                <h3>Useful Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Get in touch</a></li>
+                    <li><a href="arena-info.html">About us</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="col-3">
+                <h3>Contact</h3>
+                <ul class="fa-ul footer-links">
+                    <li><span class="fa-li"><i class="fa-solid fa-location-dot"></i></span> <address>Merrion Rd, Ballsbridge, Dublin 4,<br>Ireland. D04 AK83.</address></li>
+                    <li><span class="fa-li"><i class="fa-solid fa-phone"></i></span> <a href="tel:123-456-7890">123-456-7890</a></li>
+                    <li><span class="fa-li"><i class="fa-brands fa-whatsapp"></i></span> <a href="https://wa.me/1XXXXXXXXXX">WhatsApp</a></li>
+                    <li><span class="fa-li"><i class="fa-solid fa-envelope"></i></span> <a href="mailto:info@hilifearena.com">info@hilifearena.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2024 HI-LIFE ARENA. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+    <script src="ticket.js" type="module"></script>
+</body>
+</html>

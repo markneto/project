@@ -19,60 +19,126 @@
     <!-- Font Awesome and Line Awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+     <!-- Inline CSS for custom styling -->
+     <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        header.theme-dark {
+            background-color: #333;
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: auto;
+            padding: 0 15px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        img.band-photo {
+            max-width: 50%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
+
+        section.theme-light {
+            background-color: white;
+            padding: 20px 0;
+            margin-bottom: 2rem;
+        }
+
+        footer.theme-dark {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+        }
+
+        footer.theme-dark a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer.theme-dark a:hover {
+            text-decoration: underline;
+        }
+
+        /* Additional custom styles */
+    </style>
+     
 </head>
 <body>
 
     <nav class="theme-light">
         <div class="container-menu">
-            <a href="#" class="brand">
+            <a href="index.html" class="brand">
                 <img src="assets/img/logo1.png" alt="Hi-life Arena website logo">
             </a>
-    
             <div class="container-menu-links">
-    
-                <!-- hamburger icon -->
                 <div class="nav-toggle" id="nav-toggle-btn">
                     <div class="bar-1"></div>
                     <div class="bar-2"></div>
                     <div class="bar-3"></div>
                 </div>
-    
-                <!-- List of links -->
                 <ul class="links-wrapper">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="arena-info.html">The Arena</a></li>
                     <li><a href="#next-events">Next Events</a></li>
                     <li><a class="btn btn-solid btn-pill" id="btn-cta" href="signin.html"><span>Sign in</span> <i class="fa-solid fa-chevron-right"></i></a></li>
                 </ul>
-    
-            </div><!-- closes container-menu-links -->
-        </div><!-- closes container-menu -->
+            </div>
+        </div>
     </nav>
 
-<header class="theme-dark text-center">
-    <h1>Discover More About Ariana Grande</h1>
-    <p>Explore the journey of Ariana Grande and details about her Eternal Sunshine Tour.</p>
-</header>
+    <header class="theme-dark text-center">
+        <h1>Ariana Grande</h1>
+        <p>The story of the pop sensation and her upcoming tour dates in Ireland.</p>
+    </header>
 
-<main>
-    <section class="theme-light">
-        <div class="container">
-            <h2>Eternal Sunshine Tour</h2>
-            <p>Ariana Grande, the globally renowned pop icon, is bringing her much-anticipated Eternal Sunshine Tour to Ireland. With her incredible vocal range and captivating stage presence, Ariana promises a show that's both visually and musically spectacular. The tour supports her latest album "Eternal Sunshine", showcasing her evolution as an artist and performer.</p>
-            <p>Tickets for the concert will be available from May 20, 2024. Make sure to secure your spot for an unforgettable evening with Ariana Grande.</p>
-        </div>
-    </section>
-</main>
+    <main>
+        <section class="theme-light">
+            <div class="container text-center">
+                <img src="assets/img/arianagrande.png" alt="Ariana Grande" class="band-photo">
+                <h2>Thank U, Next Tour</h2>
+                <p>Join Ariana Grande on her "Thank U, Next" tour as she brings her latest hits and stunning performances to Ireland. Known for her wide vocal range and charismatic stage presence, Ariana is set to deliver a spectacular concert experience.</p>
+                <p>Be sure not to miss the chance to see Ariana live. Tickets go on sale soon. Stay tuned for more details on our website.</p>
+            </div>
+        </section>
 
-<footer>
+        <section class="theme-light">
+            <div class="container">
+                <h3>About Simple plan</h3>
+                <p> </p>
+               <p> Ariana Grande-Butera[note 1] (born June 26, 1993) is an American singer, songwriter, and actress. Regarded as a pop icon and an influential figure in popular music, she is noted for her four-octave vocal range and sustaining high notes which includes her signature use of the whistle register. Grande has received numerous accolades throughout her career, including one Brit Award, two Grammy Awards, two Billboard Music Awards, three American Music Awards, nine MTV Video Music Awards, and 35 Guinness World Records. Rolling Stone ranked her 43rd on their list of the greatest singers of all time.
+
+                Grande began her career at age 15 by appearing in the Broadway musical 13 (2008). She rose to prominence for her performance as Cat Valentine in the Nickelodeon television series Victorious (2010–2013), as well as the spin-off follow-up series Sam & Cat (2013–2014), and signed with Republic Records in 2011. Grande's debut studio album, Yours Truly (2013), incorporated retro-pop and R&B elements and yielded the successful single "The Way". My Everything (2014), her second album, experimented with EDM and catapulted her to worldwide stardom through the singles "Problem", "Break Free", and "Bang Bang". Grande further explored pop and R&B with her third album Dangerous Woman (2016), which solidified her critical and commercial success.
+           
+           read more on: https://en.wikipedia.org/wiki/Ariana_Grande
+            </p> 
+            </div>
+        </section>
+    </main>
+
     <footer class="theme-dark footer-3">
         <div class="footer-cols-3 w-1356px">
             <div class="col-3">
                 <a href="#" class="brand">
-                    <img src="assets/img/logo.png" alt="Sample website logo" style="width: 150px; height: 154px">
+                    <img src="assets/img/logo.png" alt="HI-LIFE Arena logo" style="width: 150px; height: 154px">
                 </a>
                 <h2>HI-LIFE Arena</h2>
-                <p>The best concert arena in Ireland.</p>
+                <p>The premier concert venue in Ireland.</p>
                 <ul class="footer-icons">
                     <li><a href="https://www.instagram.com/hilifearena/"><i class="fa-brands fa-instagram"></i></a></li>
                     <li><a href="https://twitter.com/hilifearena"><i class="fa-brands fa-twitter"></i></a></li>
@@ -85,7 +151,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#">Get in touch</a></li>
                     <li><a href="arena-info.html">About us</a></li>
-                    <li><a href="privacy.htm">Privacy</a></li>
+                    <li><a href="privacy.html">Privacy</a></li>
                 </ul>
             </div>
             <div class="col-3">
@@ -93,8 +159,8 @@
                 <ul class="fa-ul footer-links">
                     <li><span class="fa-li"><i class="fa-solid fa-location-dot"></i></span> <address>Merrion Rd, Ballsbridge, Dublin 4,<br>Ireland. D04 AK83.</address></li>
                     <li><span class="fa-li"><i class="fa-solid fa-phone"></i></span> <a href="tel:123-456-7890">123-456-7890</a></li>
-                    <li><span class="fa-li"><i class="fa-brands fa-whatsapp"></i></span> <a href="https://wa.me/1XXXXXXXXXXWhatsApp">WhatsApp</a></li>
-                    <li><span class="fa-li"><i class="fa-solid fa-envelope"></i></span> <a href="mailto:info@emailaddress.com">info@emailaddress.com</a></li>
+                    <li><span class="fa-li"><i class="fa-brands fa-whatsapp"></i></span> <a href="https://wa.me/1XXXXXXXXXX">WhatsApp</a></li>
+                    <li><span class="fa-li"><i class="fa-solid fa-envelope"></i></span> <a href="mailto:info@hilifearena.com">info@hilifearena.com</a></li>
                 </ul>
             </div>
         </div>
@@ -102,8 +168,5 @@
             <p>Copyright © 2024 HI-LIFE ARENA. All rights reserved.</p>
         </div>
     </footer>
-</footer>
-
-
 </body>
 </html>
