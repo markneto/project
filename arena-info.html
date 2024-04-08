@@ -25,13 +25,6 @@
             border-radius: 8px;
         }
         
-        .about-text {
-            text-align: justify;
-            margin-bottom: 20px;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-        
         @media (max-width: 768px) {
             .gallery {
                 grid-template-columns: repeat(2, 1fr);
@@ -42,11 +35,20 @@
             .gallery {
                 grid-template-columns: 1fr;
             }
-            .about-text {
-                font-size: 0.9rem;
-            }
         }
-    </style>
+
+        .about-text {
+            text-align: justify;
+            margin: 20px 10%; /* Added top and bottom margin */
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        h1 {
+            margin: 20px 0; /* Adjusted to give top and bottom margin */
+            text-align: center;
+        }
+    </style>    
 </head>
 <body>
     <nav class="theme-light">
@@ -68,7 +70,7 @@
                 <ul class="links-wrapper">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="arena-info.html">The Arena</a></li>
-                    <li><a href="#next-events">Next Events</a></li>
+                    <li><a href="index.html#next-events">Next Events</a></li>
                     <li><a class="btn btn-solid btn-pill" id="btn-cta" href="signin.html"><span>Sign in</span> <i class="fa-solid fa-chevron-right"></i></a></li>
                 </ul>
     
@@ -77,16 +79,16 @@
     </nav>
 
 
-    <!-- Main content -->
     <main class="theme-light">
         <div class="container">
             <h1>About HI-LIFE Arena</h1>
+            <div class="about-text">
             <p>The 3Arena (originally The O2) is an indoor amphitheatre located at North Wall Quay in the Dublin Docklands in Dublin, Ireland. The venue opened as The O2 on 16 December 2008 and was re-branded on 4 September 2014 due to the takeover of O2 Ireland by Three Ireland. The venue is owned by a Live Nation subsidiary, Apollo Leisure Group Ltd.[2] and is among the top ten busiest music arenas by ticket sales in the world.[3]</p>
             <p>The furthest seat is 60 metres from the stage, 20 metres closer than in The Point. This was achieved by arranging the seats around the stage in a gigantic "fan" formation which the architects likened to the Colosseum of Rome. There are no corporate boxes inside the venue. The backstage area has a "substantial" loading bay for trucks.[7] Alcohol is available in a high-security area of the venue in an effort to curb under-age drinking.[8] Prior to re-development, the seating capacity was 6,300 or 8,500 standing.
 
                 Mike Adamson (CEO of Live Nation Ireland) claimed that Irish fans had been short-changed when attending major events in the previous venue due to size restrictions. "It wasn't always possible to get every show touring in Europe into the venue because of restrictions. It is now. Some shows couldn't fit. For example, George Michael could only stage three-quarters of his production in the Point. We're up there now with other venues in Europe." Developer Harry Crosbie said that the Point had had a "grungy" feel "which suited Dublin at the time". He claimed that it would be a "stunning venue" created for a more "sophisticated" audience.</p>
             </div>
-            
+
             <div class="gallery">
                 <!-- Placeholder for images -->
                 <img src="assets/img/about/hilifeconcept.png" alt="3Arena Image 1">
