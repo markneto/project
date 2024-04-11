@@ -51,9 +51,9 @@
         }
         /* Adicionar espaço entre o formulário e o botão */
         .container-btn .btn {
-            margin-top: 10px; /* Adicionar espaço acima */
+            margin-top: 10px; 
         }
-        /* Posicionar o formulário e o botão ao lado direito da imagem */
+   
         .container-cols {
             display: flex;
             justify-content: flex-start;
@@ -66,6 +66,31 @@
         .col-visual {
             flex: 1;
         }
+
+        .text-center {
+    text-align: center;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+.table-container {
+    width: 60%; 
+    margin: 0 auto; 
+    overflow-x: auto; 
+}
+
     </style>
 </head>
 
@@ -166,6 +191,41 @@
                 </div>
             </div>
         </section>
+
+        <section class="theme-light">
+            <h2 class="text-center">Ticket Pricing</h2>
+            <div class="table-container"></div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sector</th>
+                        <th>Ticket Price (€)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>VIP1 (Standing)</td><td>400.00</td></tr>
+                    <tr><td>VIP2 (Standing)</td><td>400.00</td></tr>
+                    <tr><td>Block A (seating)</td><td>150.00</td></tr>
+                    <tr><td>Block C (seating)</td><td>155.00</td></tr>
+                    <tr><td>Block D (seating)</td><td>150.00</td></tr>
+                    <tr><td>Block E (seating)</td><td>140.00</td></tr>
+                    <tr><td>Block F (seating)</td><td>135.00</td></tr>
+                    <tr><td>Block G (seating)</td><td>140.00</td></tr>
+                    <tr><td>Block H (seating)</td><td>140.00</td></tr>
+                    <tr><td>Block I (seating)</td><td>110.00</td></tr>
+                    <tr><td>Block J (seating)</td><td>110.00</td></tr>
+                    <tr><td>Block K (seating)</td><td>85.00</td></tr>
+                    <tr><td>Block L (seating)</td><td>55.00</td></tr>
+                    <tr><td>Block M (seating)</td><td>70.00</td></tr>
+                    <tr><td>Block N (seating)</td><td>55.00</td></tr>
+                    <tr><td>GA (Standing)</td><td>150.00</td></tr>
+                    <tr><td>Lounge A (seating)</td><td>350.00</td></tr>
+                    <tr><td>Lounge B (seating)</td><td>320.00</td></tr>
+                    <tr><td>Lounge Front Stage (seating)</td><td>300.00</td></tr>
+
+                </tbody>
+            </table>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -187,7 +247,7 @@
                 <h3>Useful Links</h3>
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Get in touch</a></li>
+                    <li><a href="getintouch.html">Get in touch</a></li>
                     <li><a href="arena-info.html">About us</a></li>
                     <li><a href="privacy.htm">Privacy</a></li>
                 </ul>
@@ -225,6 +285,18 @@
 		// Initialize Firebase
 		const app = initializeApp(firebaseConfig);
 		const analytics = getAnalytics(app);
+
+        document.getElementById('findTickets').addEventListener('click', () => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // User is signed in
+                window.location.href = 'purchase.html';
+            } else {
+                // No user is signed in
+                window.location.href = 'signin.html';
+            }
+        });
+    });
 	  </script>
 
 </body>

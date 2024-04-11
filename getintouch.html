@@ -4,136 +4,116 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ariana Grande - More Info</title>
-    <meta name="description" content="Learn more about Ariana Grande and her tour.">
-
-    <!-- Stylesheets -->
+    <title>Get in Touch - HI-LIFE Arena</title>
     <link rel="stylesheet" href="assets/css/lu.min.css" />
     <link rel="stylesheet" href="assets/css/custom.css" />
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome and Line Awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-
-     <!-- Inline CSS for custom styling -->
-     <style>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+    <script src="ticket.js" type="module"></script>
+    
+    <style>
+        /* Add your CSS styling here */
+        /* Example: */
         body {
             font-family: 'Playfair Display', serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f7f7;
         }
-
-        header.theme-dark {
-            background-color: #333;
-            color: white;
-            padding: 2rem 0;
-            margin-bottom: 2rem;
-        }
-
-        .container {
-            max-width: 1140px;
-            margin: auto;
-            padding: 0 15px;
-        }
-
-        h1, h2, h3 {
-            color: #333;
-        }
-
-        img.band-photo {
-            max-width: 50%;
-            height: auto;
-            display: block;
+        
+        form {
+            max-width: 500px;
             margin: 20px auto;
         }
-
-        section.theme-light {
-            background-color: white;
-            padding: 20px 0;
-            margin-bottom: 2rem;
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-
-        footer.theme-dark {
-            background-color: #333;
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        button[type="submit"] {
+            padding: 10px 20px;
+            background: #007bff;
             color: white;
-            padding: 20px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
-
-        footer.theme-dark a {
-            color: white;
-            text-decoration: none;
+        
+        button[type="submit"]:hover {
+            background: #0056b3;
         }
-
-        footer.theme-dark a:hover {
-            text-decoration: underline;
-        }
-
-        /* Additional custom styles */
     </style>
-     
 </head>
 <body>
-
     <nav class="theme-light">
         <div class="container-menu">
             <a href="index.html" class="brand">
                 <img src="assets/img/logo1.png" alt="Hi-life Arena website logo">
             </a>
+    
             <div class="container-menu-links">
+    
+                <!-- hamburger icon -->
                 <div class="nav-toggle" id="nav-toggle-btn">
                     <div class="bar-1"></div>
                     <div class="bar-2"></div>
                     <div class="bar-3"></div>
                 </div>
+    
+                <!-- List of links -->
                 <ul class="links-wrapper">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="arena-info.html">The Arena</a></li>
-                    <li><a href="index.html#next-events">Next Events</a></li>
+                    <li><a href="#next-events">Next Events</a></li>
                     <li><a class="btn btn-solid btn-pill" id="btn-cta" href="signin.html"><span>Sign in</span> <i class="fa-solid fa-chevron-right"></i></a></li>
                 </ul>
-            </div>
-        </div>
+    
+            </div><!-- closes container-menu-links -->
+        </div><!-- closes container-menu -->
     </nav>
 
-    <header class="theme-dark text-center">
-        <h1>Ariana Grande</h1>
-        <p>The story of the pop sensation and her upcoming tour dates in Ireland.</p>
-    </header>
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+        <label for="reason">Reason for Contact:</label>
+        <select id="reason" name="reason">
+            <option value="suggestion">Suggestion</option>
+            <option value="complaint">Complaint</option>
+            <option value="inquiry">Inquiry</option>
+            <option value="quote">Quote Request</option>
+            <option value="order_issue">Order Issue</option>
+            <option value="job_inquiry">Job Inquiry</option>
+        </select>
 
-    <main>
-        <section class="theme-light">
-            <div class="container text-center">
-                <img src="assets/img/arianagrande.png" alt="Ariana Grande" class="band-photo">
-                <h2>Thank U, Next Tour</h2>
-                <p>Join Ariana Grande on her "Thank U, Next" tour as she brings her latest hits and stunning performances to Ireland. Known for her wide vocal range and charismatic stage presence, Ariana is set to deliver a spectacular concert experience.</p>
-                <p>Be sure not to miss the chance to see Ariana live. Tickets go on sale soon. Stay tuned for more details on our website.</p>
-            </div>
-        </section>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
-        <section class="theme-light">
-            <div class="container">
-                <h3>About Simple plan</h3>
-                <p> </p>
-               <p> Ariana Grande-Butera[note 1] (born June 26, 1993) is an American singer, songwriter, and actress. Regarded as a pop icon and an influential figure in popular music, she is noted for her four-octave vocal range and sustaining high notes which includes her signature use of the whistle register. Grande has received numerous accolades throughout her career, including one Brit Award, two Grammy Awards, two Billboard Music Awards, three American Music Awards, nine MTV Video Music Awards, and 35 Guinness World Records. Rolling Stone ranked her 43rd on their list of the greatest singers of all time.
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-                Grande began her career at age 15 by appearing in the Broadway musical 13 (2008). She rose to prominence for her performance as Cat Valentine in the Nickelodeon television series Victorious (2010–2013), as well as the spin-off follow-up series Sam & Cat (2013–2014), and signed with Republic Records in 2011. Grande's debut studio album, Yours Truly (2013), incorporated retro-pop and R&B elements and yielded the successful single "The Way". My Everything (2014), her second album, experimented with EDM and catapulted her to worldwide stardom through the singles "Problem", "Break Free", and "Bang Bang". Grande further explored pop and R&B with her third album Dangerous Woman (2016), which solidified her critical and commercial success.
-           
-           read more on: https://en.wikipedia.org/wiki/Ariana_Grande
-            </p> 
-            </div>
-        </section>
-    </main>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required>
 
-    
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
 
-	<!-- footer starts here -->
+        <button type="submit">Send</button>
+    </form>
+
+
+
+    <!-- footer starts here -->
     <footer class="theme-dark footer-3">
 
 		<!-- Begin four-column flexbox grid -->
@@ -181,5 +161,51 @@
         </div>
 
 	</footer>
+	<!-- footer ends here -->
+
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_PROJECT_ID.appspot.com",
+        messagingSenderId: "YOUR_SENDER_ID",
+        appId: "YOUR_APP_ID",
+        measurementId: "YOUR_MEASUREMENT_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+            // Get the input values
+            const reason = document.getElementById('reason').value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            // Push data to Firebase
+            const contactRef = ref(database, 'contacts');
+            push(contactRef, {
+                reason: reason,
+                name: name,
+                email: email,
+                phone: phone,
+                message: message
+            }).then(() => {
+                alert('Your message has been sent successfully.');
+            }).catch((error) => {
+                alert('An error occurred while sending your message.');
+                console.error(error);
+            });
+        });
+    </script>
 </body>
 </html>

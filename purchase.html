@@ -21,15 +21,15 @@
         .carousel {
             display: flex;
             overflow-x: auto;
-            gap: 10px; /* Espaço entre as imagens */
-            padding: 10px; /* Espaço ao redor das imagens dentro do carrossel */
+            gap: 10px;
+            padding: 10px;
         }
         .carousel img {
-            width: 100%; /* Ajusta as imagens para ocuparem o espaço disponível */
-            object-fit: cover; /* Garante que as imagens cubram o espaço sem distorcer */
-            height: 265px; /* Define uma altura fixa para as imagens do carrossel */
-            border: 4px solid hsl(0, 0%, 0%); /* Borda para as imagens */
-            border-radius: 10px; /* Bordas arredondadas */
+            width: 100%;
+            object-fit: cover;
+            height: 265px;
+            border: 4px solid hsl(0, 0%, 0%);
+            border-radius: 10px;
         }
         #paymentForm {
             max-width: 300px;
@@ -44,20 +44,19 @@
             border: 1px solid #ccc;
             border-radius: 4px;
         }
-        /* Centro do título do setor e do carrossel */
+
         .selected-sector-info,
         .carousel {
             text-align: center;
         }
         #totalPriceContainer h3 {
-            color: green; /* Cor verde para o valor total */
+            color: green;
             text-align: center;
             font-size: 1.5em;
             margin: 20px 0;
         }
     </style>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+
 </head>
 
 <body>
@@ -96,7 +95,7 @@
                 
                 <div id="totalPriceContainer">
                     <!-- The total price will be displayed here -->
-                    <h3>Total Price: <span id="totalPrice"></span> euros</h3>
+                    <h3> <span id="totalPrice"></span> </h3>
                 </div>
 
                     <form id="paymentForm">
@@ -136,7 +135,7 @@
                 <h3>Useful Links</h3>
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Get in touch</a></li>
+                    <li><a href="getintouch.html">Get in touch</a></li>
                     <li><a href="arena-info.html">About us</a></li>
                     <li><a href="privacy.htm">Privacy</a></li>
                 </ul>
@@ -199,6 +198,35 @@
     </script>
         <script src="ticket.js" type="module"></script>
 
+        <script type="module">
+            // Importação dos módulos Firebase
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+            import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+          
+            // Configuração do seu app Firebase
+            const firebaseConfig = {
+              apiKey: "AIzaSyC2F1tg40ur_PrwxWVtVLqhwhMrfX0aLsY",
+              authDomain: "hi-life-arena.firebaseapp.com",
+              projectId: "hi-life-arena",
+              storageBucket: "hi-life-arena.appspot.com",
+              messagingSenderId: "454395537519",
+              appId: "1:454395537519:web:9e3d84168acd40d1b0859a",
+              measurementId: "G-872E1E12S8"
+            };
+          
+            // Inicialização do Firebase
+            const app = initializeApp(firebaseConfig);
+          
+            // Obtenção da instância Auth e verificação do estado de autenticação
+            const auth = getAuth(app);
+            onAuthStateChanged(auth, (user) => {
+              if (!user) {
+                // Se não houver usuário logado, redireciona para signin.html
+                window.location.href = 'signin.html';
+              }
+            });
+          </script>
+          
+  
 </body>
-
 </html>
