@@ -8,6 +8,14 @@ This proposal outlines the development of a ticket sales website with 3D visuali
 
 The project aims to improve the ticket purchasing experience by providing detailed 3D seat maps, addressing common issues faced by users with traditional flat map presentations.
 
+Many users face difficulties in purchasing tickets online, either due to the
+navigability of the website or understanding the seating map of the event venue, which is
+mostly a flat map with no details.
+By providing a 3D view of the event location for seat selection, it will greatly improve the
+purchasing experience and align consumer expectations, who will be able to have a
+clearer idea of what their seat will be like and their vision for the stage.
+
+
 **Technologies Used:**
 - Front-end: HTML, CSS
 - 3D Modeling: SketchUp
@@ -32,7 +40,7 @@ The project aims to improve the ticket purchasing experience by providing detail
 ![3D Seat View](assets/img/Visuals/Seat3DVisuals.png)
 ![Purchase Page](assets/img/Visuals/Purchased.png)
 ![Change Password](assets/img/Visuals/changepass.png)
-![Ariana Page](assets/img/Visuals/AGpage (1).png)
+![Ariana Page](assets/img/Visuals/AGpage.png)
 ![Simple Plan Page](assets/img/Visuals/SPpage.png)
 ![Contact Us](assets/img/Visuals/contactus.png)
 
