@@ -166,65 +166,68 @@
 
 
     <script type="module">
+        // Import Firebase modules
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
         import { getDatabase, ref, push, set } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
-        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
-    
+        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+      
+        // Your web app's Firebase configuration
         const firebaseConfig = {
-            apiKey: "AIzaSyC2F1tg40ur_PrwxWVtVLqhwhMrfX0aLsY",
-            authDomain: "hi-life-arena.firebaseapp.com",
-            databaseURL: "https://hi-life-arena-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "hi-life-arena",
-            storageBucket: "hi-life-arena.appspot.com",
-            messagingSenderId: "454395537519",
-            appId: "1:454395537519:web:9e3d84168acd40d1b0859a",
-            measurementId: "G-872E1E12S8"
+          apiKey: "AIzaSyC2F1tg40ur_PrwxWVtVLqhwhMrfX0aLsY",
+          authDomain: "hi-life-arena.firebaseapp.com",
+          databaseURL: "https://hi-life-arena-default-rtdb.europe-west1.firebasedatabase.app",
+          projectId: "hi-life-arena",
+          storageBucket: "hi-life-arena.appspot.com",
+          messagingSenderId: "454395537519",
+          appId: "1:454395537519:web:9e3d84168acd40d1b0859a",
+          measurementId: "G-872E1E12S8"
         };
-    
+      
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const database = getDatabase(app);
         const auth = getAuth(app);
-    
+      
+        // Listen for form submission
         document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-    
-            const reason = document.getElementById('reason').value;
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-    
-            // Reference to your database path
-            const contactRef = ref(database, 'contacts');
-            const newContactRef = push(contactRef);
-            set(newContactRef, {
-                reason: reason,
-                name: name,
-                email: email,
-                phone: phone,
-                message: message
-            }).then(() => {
-                alert('Your message was sent. We will answer as soon as possible.');
-                window.location.href = 'index.html'; // Redirect to the homepage
-            }).catch((error) => {
-                alert('Failed to send message: ' + error.message);
-            });
+          event.preventDefault();
+      
+          const reason = document.getElementById('reason').value;
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const phone = document.getElementById('phone').value;
+          const message = document.getElementById('message').value;
+      
+          // Reference to your database path
+          const contactRef = ref(database, 'contacts');
+          const newContactRef = push(contactRef);
+          set(newContactRef, {
+            reason: reason,
+            name: name,
+            email: email,
+            phone: phone,
+            message: message
+          }).then(() => {
+            alert('Your message was sent. We will answer as soon as possible.');
+            window.location.href = 'index.html'; // Redirect to the homepage
+          }).catch((error) => {
+            alert('Failed to send message: ' + error.message);
+          });
         });
-
-    </script>
-    <script>
-                document.getElementById('btn-logout').addEventListener('click', () => {
-            signOut(auth).then(() => {
-          
-                window.location.href = 'signin.html';
-            }).catch((error) => {
-             
-                console.error('Logout Failed', error);
-            });
+      
+        // Listen for logout button click
+        document.getElementById('btn-logout').addEventListener('click', () => {
+          signOut(auth).then(() => {
+            window.location.href = 'signin.html'; // Redirect to the sign-in page after logout
+          }).catch((error) => {
+            console.error('Logout Failed', error);
+          });
         });
-    </script>
+      </script>
+      
     
 
 </body>
+    
+
 </html>
