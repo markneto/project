@@ -52,7 +52,7 @@ To start navigating the project:
 2. Open the `Login.html` file in a web browser to access the login page.
 3. Follow the prompts to explore different features.
 
-[Video Usage Demonstration on YouTube](#)
+[Video Usage Demonstration on YouTube](https://youtu.be/JynRUOfu3PY)
 
 ## Support
 

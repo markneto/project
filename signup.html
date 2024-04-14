@@ -22,6 +22,31 @@
     <!-- Line Awesome thin icons -->
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
+
+<style>
+
+    .container-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); 
+        z-index: -1;
+    }
+
+    body {
+    position: relative;
+    background-image: url('assets/img/crowd-people.png'); 
+    background-color: rgb(19, 19, 202); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+}
+
+       
+    </style>
+
 <body>
 
 <!-- Navbar Menu -->
@@ -50,7 +75,7 @@
     </div><!-- closes container-menu -->
 </nav>
 
-<section class="theme-light text-center">
+<section>
     <div class="signup-form">
         <h2>Sign Up</h2>
         <form action="signup" method="POST" id="signup-form">
