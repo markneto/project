@@ -215,14 +215,18 @@
           });
         });
       
-        // Listen for logout button click
-        document.getElementById('btn-logout').addEventListener('click', () => {
-          signOut(auth).then(() => {
-            window.location.href = 'signin.html'; // Redirect to the sign-in page after logout
-          }).catch((error) => {
-            console.error('Logout Failed', error);
-          });
+  
+    const handleLogout = () => {
+        signOut(auth).then(() => {
+           
+            window.location.href = 'signin.html';
+        }).catch((error) => {
+          
+            console.error('Erro no logout', error);
         });
+    };
+
+        document.getElementById('btn-logout').addEventListener('click', handleLogout);
       </script>
       
     

@@ -178,33 +178,37 @@
     <script src="ticket.js" type="module"></script>
     <script src="ln.js"></script>
 
-	<script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
-    
-        const firebaseConfig = {
-         apiKey: "AIzaSyC2F1tg40ur_PrwxWVtVLqhwhMrfX0aLsY",
-		  authDomain: "hi-life-arena.firebaseapp.com",
-		  projectId: "hi-life-arena",
-		  storageBucket: "hi-life-arena.appspot.com",
-		  messagingSenderId: "454395537519",
-		  appId: "1:454395537519:web:9e3d84168acd40d1b0859a",
-		  measurementId: "G-872E1E12S8"
-        };
-    
-    
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-  
-        document.getElementById('btn-logout').addEventListener('click', () => {
-            signOut(auth).then(() => {
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+   import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+   
+       const firebaseConfig = {
+        apiKey: "AIzaSyC2F1tg40ur_PrwxWVtVLqhwhMrfX0aLsY",
+         authDomain: "hi-life-arena.firebaseapp.com",
+         projectId: "hi-life-arena",
+         storageBucket: "hi-life-arena.appspot.com",
+         messagingSenderId: "454395537519",
+         appId: "1:454395537519:web:9e3d84168acd40d1b0859a",
+         measurementId: "G-872E1E12S8"
+       };
+   
+   
+       const app = initializeApp(firebaseConfig);
+   const auth = getAuth(app);
+ 
+   const handleLogout = () => {
+       signOut(auth).then(() => {
           
-                window.location.href = 'signin.html';
-            }).catch((error) => {
-             
-                console.error('Logout Failed', error);
-            });
-        });
+           window.location.href = 'signin.html';
+       }).catch((error) => {
+         
+           console.error('Erro no logout', error);
+       });
+   };
+
+   
+   document.getElementById('btn-logout').addEventListener('click', handleLogout);
     </script>
     
 </body>

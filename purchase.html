@@ -201,11 +201,10 @@
 
         <script type="module">
             // Importação dos módulos Firebase
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
-            import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
-            import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+            import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
           
-            // Configuração do seu app Firebase
+        
             const firebaseConfig = {
               apiKey: "AIzaSyC2F1tg40ur_PrwxWVtVLqhwhMrfX0aLsY",
               authDomain: "hi-life-arena.firebaseapp.com",
@@ -216,20 +215,28 @@
               measurementId: "G-872E1E12S8"
             };
           
+            
             const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-  
-        document.getElementById('btn-logout').addEventListener('click', () => {
-            signOut(auth).then(() => {
+            const auth = getAuth(app);
           
-                window.location.href = 'signin.html';
-            }).catch((error) => {
-             
-                console.error('Logout Failed', error);
+          
+            document.getElementById('btn-logout').addEventListener('click', () => {
+              signOut(auth).then(() => {
+                window.location.href = 'signin.html'; 
+              }).catch((error) => {
+                console.error('Erro no logout', error);
+              });
             });
-        });
-
+          
+            
+            onAuthStateChanged(auth, (user) => {
+              if (!user) {
+                window.location.href = 'signin.html'; 
+              }
+              
+            });
           </script>
+          
           
   
 </body>
