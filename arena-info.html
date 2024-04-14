@@ -48,6 +48,25 @@
             margin: 20px 0; /* Adjusted to give top and bottom margin */
             text-align: center;
         }
+
+        #quote-button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+#quote-button:hover {
+    background-color: #45a049; /* Verde mais escuro */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
     </style>    
 </head>
 <body>
@@ -71,8 +90,8 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="arena-info.html">The Arena</a></li>
                     <li><a href="index.html#next-events">Next Events</a></li>
-                    <li><a class="btn btn-solid btn-pill" id="btn-cta" href="signin.html"><span>Logout</span> <i class="fa-solid fa-chevron-right"></i></a></li>
-                </ul>
+                    <a class="btn btn-solid btn-pill" id="btn-logout"><span>Logout</span> <i class="fa-solid fa-right-from-bracket"></i></a>
+
     
             </div><!-- closes container-menu-links -->
         </div>
@@ -83,10 +102,23 @@
         <div class="container">
             <h1>About HI-LIFE Arena</h1>
             <div class="about-text">
-            <p>The 3Arena (originally The O2) is an indoor amphitheatre located at North Wall Quay in the Dublin Docklands in Dublin, Ireland. The venue opened as The O2 on 16 December 2008 and was re-branded on 4 September 2014 due to the takeover of O2 Ireland by Three Ireland. The venue is owned by a Live Nation subsidiary, Apollo Leisure Group Ltd.[2] and is among the top ten busiest music arenas by ticket sales in the world.[3]</p>
-            <p>The furthest seat is 60 metres from the stage, 20 metres closer than in The Point. This was achieved by arranging the seats around the stage in a gigantic "fan" formation which the architects likened to the Colosseum of Rome. There are no corporate boxes inside the venue. The backstage area has a "substantial" loading bay for trucks.[7] Alcohol is available in a high-security area of the venue in an effort to curb under-age drinking.[8] Prior to re-development, the seating capacity was 6,300 or 8,500 standing.
+            <p>The  Hi-Life arena is an indoor amphitheatre located at Merrion road Dublin, Ireland.</p>
+            <p>Hi-Life Arena is a multipurpose venue inaugurated in 2024. Its creator, Marcelo Ferreira Neto, brought the most modern facilities in the world to this arena located on Merrion Road in Dublin, with a focus on concerts and performances. It comfortably accommodates up to 10,000 spectators. The arena features a 3D model where attendees can select their desired section to purchase tickets, and before finalizing the purchase, customers can access 3D photos of their seat and the view they will have of the main stage.
 
-                Mike Adamson (CEO of Live Nation Ireland) claimed that Irish fans had been short-changed when attending major events in the previous venue due to size restrictions. "It wasn't always possible to get every show touring in Europe into the venue because of restrictions. It is now. Some shows couldn't fit. For example, George Michael could only stage three-quarters of his production in the Point. We're up there now with other venues in Europe." Developer Harry Crosbie said that the Point had had a "grungy" feel "which suited Dublin at the time". He claimed that it would be a "stunning venue" created for a more "sophisticated" audience.</p>
+                The arena can host both private and public events for audiences starting from 20 spectators. It has 20 sectors, including lounges, with a main lounge (front stage) that can also be divided into 8 private lounges. All lounges have exclusive bars and quick access to restrooms.</p>
+                
+               <p>Events you can host at the arena include:</p> 
+                
+               <p> *Concerts,</p>
+               <p>*Theater plays,</p>
+                <p> *Circuses,</p>
+                    <p>*Sporting events,</p>
+                        <p> *Corporate parties,</p>
+                            <p>*Graduations,</p>
+                                <p>*Weddings.</p>
+
+                                <button id="quote-button" onclick="window.location.href='getintouch.html';">Request your quote today, contact us</button>
+
             </div>
 
             <div class="gallery">
@@ -144,5 +176,37 @@
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
     <script src="ticket.js" type="module"></script>
+    <script src="ln.js"></script>
+
+	<script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+    
+        const firebaseConfig = {
+         apiKey: "AIzaSyC2F1tg40ur_PrwxWVtVLqhwhMrfX0aLsY",
+		  authDomain: "hi-life-arena.firebaseapp.com",
+		  projectId: "hi-life-arena",
+		  storageBucket: "hi-life-arena.appspot.com",
+		  messagingSenderId: "454395537519",
+		  appId: "1:454395537519:web:9e3d84168acd40d1b0859a",
+		  measurementId: "G-872E1E12S8"
+        };
+    
+    
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+  
+        document.getElementById('btn-logout').addEventListener('click', () => {
+            signOut(auth).then(() => {
+          
+                window.location.href = 'signin.html';
+            }).catch((error) => {
+             
+                console.error('Logout Failed', error);
+            });
+        });
+    </script>
+    
 </body>
 </html>
+

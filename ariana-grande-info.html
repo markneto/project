@@ -96,7 +96,8 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="arena-info.html">The Arena</a></li>
                     <li><a href="index.html#next-events">Next Events</a></li>
-                    <li><a class="btn btn-solid btn-pill" id="btn-cta" href="signin.html"><span>Logout</span> <i class="fa-solid fa-chevron-right"></i></a></li>
+                    <a class="btn btn-solid btn-pill" id="btn-logout"><span>Logout</span> <i class="fa-solid fa-right-from-bracket"></i></a>
+
                 </ul>
             </div>
         </div>
@@ -181,5 +182,37 @@
         </div>
 
 	</footer>
+
+    <script src="ln.js"></script>
+
+	<script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+    
+        const firebaseConfig = {
+         apiKey: "AIzaSyC2F1tg40ur_PrwxWVtVLqhwhMrfX0aLsY",
+		  authDomain: "hi-life-arena.firebaseapp.com",
+		  projectId: "hi-life-arena",
+		  storageBucket: "hi-life-arena.appspot.com",
+		  messagingSenderId: "454395537519",
+		  appId: "1:454395537519:web:9e3d84168acd40d1b0859a",
+		  measurementId: "G-872E1E12S8"
+        };
+    
+    
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+  
+        document.getElementById('btn-logout').addEventListener('click', () => {
+            signOut(auth).then(() => {
+          
+                window.location.href = 'signin.html';
+            }).catch((error) => {
+             
+                console.error('Logout Failed', error);
+            });
+        });
+    </script>
+    
 </body>
 </html>
