@@ -1,20 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
-    <title>User Profile</title>
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <meta name="description" content="Learn more about Beyoncé and her Cowboy Carter tour.">
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/lu.min.css" />
     <link rel="stylesheet" href="assets/css/custom.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome and Line Awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+    <script src="ticket.js" type="module"></script>
+    
 <style>
 
-/* Reset básico para manter a consistência entre os navegadores */
+.col-visual img {
+            width: 115%; 
+            max-width: 115%;
+            height: auto;
+        }
+
+        select {
+            font-size: 16px;
+            border: 1px solid #ccc; 
+            padding: 8px; 
+            width: 100%; 
+            margin-bottom: 10px; 
+        }
+        
+        .container-btn {
+            margin-top: 10px; 
+        }
+        
+        .container-btn .btn {
+            margin-top: 10px; 
+        }
+   
+        .container-cols {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        .col-text {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .col-visual {
+            flex: 1;
+        }
+
+        .text-center {
+    text-align: center;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+.table-container {
+    width: 60%; 
+    margin: 0 auto; 
+    overflow-x: auto; 
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -35,34 +107,8 @@ a {
     text-decoration: none;
 }
 
-/* Navbar */
-nav.theme-light {
-    background-color: #fff;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
 
-nav .container-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-nav ul.links-wrapper {
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
-
-nav ul.links-wrapper li {
-    margin: 0 15px;
-}
-
-nav ul.links-wrapper li a {
-    font-weight: 700;
-}
-
-/* Estilos específicos da seção */
 main {
     padding: 20px;
 }
@@ -80,7 +126,7 @@ section h2 {
     font-size: 24px;
 }
 
-/* Formulário de alteração de senha */
+
 #change-password-form {
     display: flex;
     flex-direction: column;
@@ -94,7 +140,7 @@ input[type="password"], button {
 }
 
 button {
-    background-color: #4CAF50; /* Verde */
+    background-color: #4CAF50; 
     color: white;
     cursor: pointer;
     border: none;
@@ -104,23 +150,76 @@ button:hover {
     opacity: 0.8;
 }
 
-/* Footer */
-footer.theme-dark {
-    background-color: #333;
-    color: #fff;
+#change-password {
+    max-width: 500px; 
+    margin: auto; 
     padding: 20px;
-    text-align: center;
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+    background: #ffffff; 
 }
 
-footer ul {
-    list-style: none;
-    padding: 0;
+#change-password-form input[type="password"], 
+#change-password-form button {
+    width: 100%; 
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
-footer a, footer a:hover {
-    color: #fff;
+#change-password-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.3s;
 }
 
+#change-password-form button:hover {
+    opacity: 0.7;
+}
+
+#change-password-form p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+
+
+#purchases-table {
+  max-width: 760px; 
+  margin-left: 20px; 
+  border-collapse: collapse;
+}
+
+#purchases-table th,
+#purchases-table td {
+  text-align: center;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+#purchases-table th {
+  background-color: #f4f4f4;
+}
+
+#purchases-table tbody tr:nth-child(odd) {
+  background-color: #d6fff9;
+}
+
+#purchases-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+#user-info p {
+  margin: 0;
+}
+
+#user-info p span#user-email {
+  font-weight: bold; /* Makes the email title bold */
+}
 
 </style>
 
@@ -145,6 +244,7 @@ footer a, footer a:hover {
                 <li><a href="index.html">Home</a></li>
                 <li><a href="arena-info.html">The Arena</a></li>
                 <li><a href="index.html#next-events">Next Events</a></li>
+                <li><a href="user.html">My Tickets</a></li>
                 <li><a class="btn btn-solid btn-pill" id="btn-cta" href="signin.html"><span>Logout</span> <i class="fa-solid fa-chevron-right"></i></a></li>
             </ul>
         </div><!-- closes container-menu-links -->
@@ -154,67 +254,205 @@ footer a, footer a:hover {
 <main>
     <section id="user-info">
         <h2>User information</h2>
+ 
         <p>Email: <span id="user-email"></span></p>
-        <!-- Adicione mais informações conforme necessário -->
+
     </section>
 
     <section id="purchased-tickets">
-        <h2>Tickets</h2>
-        <ul id="tickets-list">
-            <!-- Lista de ingressos comprados será inserida aqui -->
-        </ul>
-    </section>
+        <h2>Purchased Tickets, Beyoncé- Cowboy Carter Tour</h2>
+        <table id="purchases-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Sector</th>
+            </tr>
+          </thead>
+          <tbody id="purchases-table-body">
+            <!-- Ticket rows will be inserted here by JavaScript -->
+          </tbody>
+        </table>
+      </section>
 
     <section id="change-password">
         <h2>Change password</h2>
         <form id="change-password-form">
-            <input type="password" id="new-password" placeholder="Nova Senha" required>
+            <input type="password" id="current-password" placeholder="Current password" required>
+            <p>Your new password must be a minimum of 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character</p>
+            <input type="password" id="new-password" placeholder="New password" required>
+            <input type="password" id="confirm-new-password" placeholder="Repeat New password" required>
             <button type="submit">Change password</button>
         </form>
     </section>
 </main>
 
-    <!-- Footer -->
-    <footer class="theme-dark footer-3">
-        <div class="footer-cols-3 w-1356px">
-            <div class="col-3">
-                <a href="#" class="brand">
-                    <img src="assets/img/logo.png" alt="Sample website logo" style="width: 150px; height: 154px">
-                </a>
-                <h2>HI-LIFE Arena</h2>
-                <p>The best concert arena in Ireland.</p>
-                <ul class="footer-icons">
-                    <li><a href="https://www.instagram.com/hilifearena/"><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="https://twitter.com/hilifearena"><i class="fa-brands fa-twitter"></i></a></li>
-                    <li><a href="https://youtube.com/hilifearena"><i class="fa-brands fa-youtube"></i></a></li>
-                </ul>
-            </div>
-            <div class="col-3">
-                <h3>Useful Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="getintouch.html">Get in touch</a></li>
-                    <li><a href="arena-info.html">About us</a></li>
-                    <li><a href="privacy.htm">Privacy</a></li>
-                </ul>
-            </div>
-            <div class="col-3">
-                <h3>Contact</h3>
-                <ul class="fa-ul footer-links">
-                    <li><span class="fa-li"><i class="fa-solid fa-location-dot"></i></span> <address>Merrion Rd, Ballsbridge, Dublin 4,<br>Ireland. D04 AK83.</address></li>
-                    <li><span class="fa-li"><i class="fa-solid fa-phone"></i></span> <a href="tel:123-456-7890">123-456-7890</a></li>
-                    <li><span class="fa-li"><i class="fa-brands fa-whatsapp"></i></span> <a href="https://wa.me/1XXXXXXXXXXWhatsApp">WhatsApp</a></li>
-                    <li><span class="fa-li"><i class="fa-solid fa-envelope"></i></span> <a href="mailto:info@emailaddress.com">info@emailaddress.com</a></li>
-                </ul>
-            </div>
+<footer class="theme-dark footer-3">
+    <div class="footer-cols-3 w-1356px">
+        <div class="col-3">
+            <a href="#" class="brand">
+                <img src="assets/img/logo.png" alt="Sample website logo" style="width: 150px; height: 154px">
+            </a>
+            <h2>HI-LIFE Arena</h2>
+            <p>The best concert arena in Ireland.</p>
+            <ul class="footer-icons">
+                <li><a href="https://www.instagram.com/hilifearena/"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://twitter.com/hilifearena"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://youtube.com/hilifearena"><i class="fa-brands fa-youtube"></i></a></li>
+            </ul>
         </div>
-        <div class="copyright">
-            <p>Copyright © 2024 HI-LIFE ARENA. All rights reserved.</p>
+        <div class="col-3">
+            <h3>Useful Links</h3>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="getintouch.html">Get in touch</a></li>
+                <li><a href="arena-info.html">About us</a></li>
+                <li><a href="privacy.htm">Privacy</a></li>
+            </ul>
         </div>
-    </footer>
+        <div class="col-3">
+            <h3>Contact</h3>
+            <ul class="fa-ul footer-links">
+                <li><span class="fa-li"><i class="fa-solid fa-location-dot"></i></span> <address>Merrion Rd, Ballsbridge, Dublin 4,<br>Ireland. D04 AK83.</address></li>
+                <li><span class="fa-li"><i class="fa-solid fa-phone"></i></span> <a href="tel:123-456-7890">123-456-7890</a></li>
+                <li><span class="fa-li"><i class="fa-brands fa-whatsapp"></i></span> <a href="https://wa.me/1XXXXXXXXXXWhatsApp">WhatsApp</a></li>
+                <li><span class="fa-li"><i class="fa-solid fa-envelope"></i></span> <a href="mailto:info@emailaddress.com">info@emailaddress.com</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright © 2024 HI-LIFE ARENA. All rights reserved.</p>
+    </div>
+</footer>
 
 <script src="ticket.js"></script>
-<script src="user.js"></script>
+
+<ul id="purchases-list"></ul> <!-- Elemento onde as compras serão listadas -->
+
+
+<script> 
+    import {
+        reauthenticateWithCredential,
+        EmailAuthProvider,
+        updatePassword
+      } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"; </script>
+    
+
+<script type="module">
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getAuth, onAuthStateChanged, reauthenticateWithCredential, EmailAuthProvider, updatePassword } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+  
+    const firebaseConfig = {
+        apiKey: "AIzaSyC2F1tg40ur_PrwxWVtVLqhwhMrfX0aLsY",
+		  authDomain: "hi-life-arena.firebaseapp.com",
+		  projectId: "hi-life-arena",
+		  storageBucket: "hi-life-arena.appspot.com",
+		  messagingSenderId: "454395537519",
+		  appId: "1:454395537519:web:9e3d84168acd40d1b0859a",
+		  measurementId: "G-872E1E12S8",
+          databaseURL: "https://hi-life-arena-default-rtdb.europe-west1.firebasedatabase.app/"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+  
+    onAuthStateChanged(auth, (user) => {
+  if (user) {
+    document.getElementById('user-email').textContent = user.email;
+
+        const userPurchasesRef = ref(db, 'users/' + user.uid + '/purchases');
+            onValue(userPurchasesRef, (snapshot) => {
+                const data = snapshot.val();
+                const purchasesList = document.getElementById('purchases-list');
+                purchasesList.innerHTML = ''; // Clear existing list
+                for (const id in data) {
+                    const purchase = data[id];
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `Date: ${purchase.date}, Price: ${purchase.price}, Quantity: ${purchase.quantity}, Sector: ${purchase.sector}`;
+                    purchasesList.appendChild(listItem);
+                }
+            });
+
+            onValue(userPurchasesRef, (snapshot) => {
+  const data = snapshot.val();
+  const tableBody = document.getElementById('purchases-table-body');
+  tableBody.innerHTML = ''; // Clear existing table rows
+  for (const id in data) {
+    const purchase = data[id];
+    const row = tableBody.insertRow();
+    row.insertCell(0).textContent = new Date(purchase.date).toLocaleDateString(undefined, {
+      day: '2-digit', month: 'short', year: 'numeric'
+    }) + " " + new Date(purchase.date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    row.insertCell(1).textContent = `€${parseFloat(purchase.price).toFixed(2)}`;
+    row.insertCell(2).textContent = purchase.quantity;
+    row.insertCell(3).textContent = purchase.sector;
+  }
+});
+
+            const changePasswordForm = document.getElementById('change-password-form');
+    changePasswordForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const currentPassword = document.getElementById('current-password').value;
+      const newPassword = document.getElementById('new-password').value;
+      const confirmPassword = document.getElementById('confirm-new-password').value;
+
+      if (newPassword !== confirmPassword) {
+        alert('New passwords do not match.');
+        return;
+      }
+
+      const credential = EmailAuthProvider.credential(
+        user.email,
+        currentPassword
+      );
+
+      try {
+        await reauthenticateWithCredential(user, credential);
+        await updatePassword(user, newPassword);
+        alert('Password updated successfully.');
+      } catch (error) {
+        console.error('Error updating password', error);
+        alert('Failed to update password. ' + error.message);
+      }
+    });
+  } else {
+    window.location.href = 'signin.html';
+  }
+});
+
+
+
+
+    
+  
+    // Logout logic
+    document.getElementById('btn-logout').addEventListener('click', async () => {
+      try {
+          await auth.signOut();
+          window.location.href = 'signin.html'; // Redirect to sign-in page after logout
+      } catch (error) {
+          console.error('Logout failed', error);
+          alert('Logout failed. Please try again.');
+      }
+    });
+
+const dateISO = "2024-04-14T19:32:55.045Z";
+const date = new Date(dateISO);
+const humanReadableDate = date.toLocaleDateString(undefined, {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit'
+});
+  </script>
+  
 
 </body>
 </html>

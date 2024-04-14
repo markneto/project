@@ -157,87 +157,95 @@
     </footer>
 
     
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+        import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js';
+        import { getDatabase, ref, push, set } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js';
 
-    </script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyC2F1tg40ur_PrwxWVtVLqhwhMrfX0aLsY",
+            authDomain: "hi-life-arena.firebaseapp.com",
+            projectId: "hi-life-arena",
+            storageBucket: "hi-life-arena.appspot.com",
+            messagingSenderId: "454395537519",
+            appId: "1:454395537519:web:9e3d84168acd40d1b0859a",
+            measurementId: "G-872E1E12S8",
+            databaseURL: "https://hi-life-arena-default-rtdb.europe-west1.firebasedatabase.app/"
+        };
 
-    <script>
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const database = getDatabase(app);
+
+        // Handling logout
+        document.getElementById('btn-logout').addEventListener('click', async () => {
+            try {
+                await signOut(auth);
+                window.location.href = 'signin.html'; // Redirect to sign-in page after logout
+            } catch (error) {
+                console.error('Logout Failed', error);
+            }
+        });
+
+        // Handle purchase logic
+        document.getElementById('paymentForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const user = auth.currentUser;
+            if (!user) {
+                alert('You must be logged in to make a purchase.');
+                return;
+            }
+
+            // Assuming sector, quantity, and price are stored in localStorage
+            const sector = localStorage.getItem('selectedSector');
+            const quantity = parseInt(localStorage.getItem('selectedQuantity'), 10);
+            const price = parseFloat(localStorage.getItem('ticketPrice'));
+
+            const purchaseRef = ref(database, `users/${user.uid}/purchases`);
+            const newPurchaseRef = push(purchaseRef);
+            set(newPurchaseRef, {
+                sector: sector,
+                quantity: quantity,
+                price: price * quantity,
+                date: new Date().toISOString()
+            }).then(() => {
+                alert('Purchase successful! Redirecting to your user page.');
+                window.location.href = 'user.html'; // Redirect to user page after successful purchase
+            }).catch((error) => {
+                console.error('Error saving purchase to database', error);
+                alert('There was an error processing your purchase.');
+            });
+        });
+
+        // Load selected sector details
         document.addEventListener('DOMContentLoaded', function() {
-            const selectedSector = localStorage.getItem('selectedSector');
-            const selectedQuantity = parseInt(localStorage.getItem('selectedQuantity'), 10);
-            const ticketPrice = parseFloat(localStorage.getItem('ticketPrice'));
-            
-            const sectorTitleElement = document.getElementById('selectedSectorTitle');
-            const sectorCarouselElement = document.getElementById('sectorCarousel');
-            const totalPriceElement = document.getElementById('totalPrice');
-            
-            if (selectedSector && !isNaN(selectedQuantity) && !isNaN(ticketPrice)) {
-                sectorTitleElement.textContent = `Selected Sector: ${selectedSector}`;
-                totalPriceElement.textContent = `Total Price: ${(ticketPrice * selectedQuantity).toFixed(2)} euros`;
-                
-                // Nome do setor sem espaços para corresponder ao nome dos arquivos de imagem
-                const imagePrefix = selectedSector.replace(/\s/g, '');
-    
+            const sector = localStorage.getItem('selectedSector');
+            const quantity = parseInt(localStorage.getItem('selectedQuantity'), 10);
+            const price = parseFloat(localStorage.getItem('ticketPrice'));
+
+            if (sector && !isNaN(quantity) && !isNaN(price)) {
+                document.getElementById('selectedSectorTitle').textContent = `Selected Sector: ${sector}`;
+                document.getElementById('totalPrice').textContent = `Total Price: ${price * quantity} €`;
+
+                // Load carousel images based on selected sector
+                const sectorCarouselElement = document.getElementById('sectorCarousel');
+                const imagePrefix = sector.replace(/\s/g, '');
+
                 for (let i = 1; i <= 3; i++) {
                     const imgElement = document.createElement('img');
                     imgElement.src = `assets/img/beyonce/${imagePrefix}-pic${i}.png`;
-                    imgElement.alt = `Image of ${selectedSector} ${i}`;
+                    imgElement.alt = `Image of ${sector} ${i}`;
                     sectorCarouselElement.appendChild(imgElement);
                 }
             } else {
-                sectorTitleElement.textContent = 'Selected Sector: Not Found';
+                document.getElementById('selectedSectorTitle').textContent = 'No sector selected';
                 console.error('No sector was selected');
             }
         });
-        document.getElementById('paymentForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
-    // Fake payment processing
-    alert("Congratulations, YOU ARE IN! Your ticket has been purchased. You will receive your ticket via email within 24 hours before the event. Thank you!");
+      </script>
     
-    // Redirect to index.html after the alert is closed
-    window.location.href = 'index.html';
-});
-    </script>
-        <script src="ticket.js" type="module"></script>
-
-        <script type="module">
-            // Importação dos módulos Firebase
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-            import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-          
-        
-            const firebaseConfig = {
-              apiKey: "AIzaSyC2F1tg40ur_PrwxWVtVLqhwhMrfX0aLsY",
-              authDomain: "hi-life-arena.firebaseapp.com",
-              projectId: "hi-life-arena",
-              storageBucket: "hi-life-arena.appspot.com",
-              messagingSenderId: "454395537519",
-              appId: "1:454395537519:web:9e3d84168acd40d1b0859a",
-              measurementId: "G-872E1E12S8"
-            };
-          
-            
-            const app = initializeApp(firebaseConfig);
-            const auth = getAuth(app);
-          
-          
-            document.getElementById('btn-logout').addEventListener('click', () => {
-              signOut(auth).then(() => {
-                window.location.href = 'signin.html'; 
-              }).catch((error) => {
-                console.error('Erro no logout', error);
-              });
-            });
-          
-            
-            onAuthStateChanged(auth, (user) => {
-              if (!user) {
-                window.location.href = 'signin.html'; 
-              }
-              
-            });
-          </script>
-          
-          
   
 </body>
 </html>
