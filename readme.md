@@ -54,7 +54,7 @@ clearer idea of what their seat will be like and their vision for the stage.
 
 To start navigating the project:
 1. Clone the repository from GitHub.
-2. Open the `Login.html` file in a web browser to access the login page.
+2. Open the `Login.html` file in a web browser to access the login page. (You must be connected with the internet)
 3. Follow the prompts to explore different features.
 
 [Video Usage Demonstration on YouTube](https://youtu.be/JynRUOfu3PY) 
