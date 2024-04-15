@@ -99,8 +99,8 @@ This project utilizes the following platforms and resources:
 - [ArianaGrande.com](https://ArianaGrande.com)
 - [SimplePlan.com](https://SimplePlan.com)
 - [Wikipedia](https://www.wikipedia.org/)
-- [Stack Overflow](https://stackoverflow.com)
 - [OpenAi](https://chat.openai.com)
-- [Lunevedy](https://lunevedy.com)
+- [Stack Overflow](https://stackoverflow.com)
+
 
 
