@@ -36,8 +36,13 @@ clearer idea of what their seat will be like and their vision for the stage.
 ![Next Events](assets/img/Visuals/NextEvents.png)
 ![About Page](assets/img/Visuals/About.png)
 ![Seat Map](assets/img/Visuals/SeatMap.png)
+![Seat Map 2](assets/img/beyonce/seatplan.png)
 ![Bey Page](assets/img/Visuals/Beypage.png)
 ![3D Seat View](assets/img/Visuals/Seat3DVisuals.png)
+![View1](assets/img/Visuals/Arena1.png)
+![View2](assets/img/Visuals/Arena2.png)
+![View3](assets/img/Visuals/Arena3.png)
+![View4](assets/img/Visuals/Arena3.png)
 ![Purchase Page](assets/img/Visuals/Purchased.png)
 ![Change Password](assets/img/Visuals/changepass.png)
 ![Ariana Page](assets/img/Visuals/AGpage.png)
@@ -52,7 +57,7 @@ To start navigating the project:
 2. Open the `Login.html` file in a web browser to access the login page.
 3. Follow the prompts to explore different features.
 
-[Video Usage Demonstration on YouTube](https://youtu.be/JynRUOfu3PY)
+[Video Usage Demonstration on YouTube](https://youtu.be/JynRUOfu3PY) 
 
 ## Support
 
