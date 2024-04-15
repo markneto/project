@@ -1,5 +1,7 @@
 # Hi-Life Arena
 
+![Logo](assets/img/logo5.png)
+
 ## Description
 
 Hi-Life Arena is an academic research project for the Computer Science course at Dorset College, class of 2024.
@@ -57,9 +59,18 @@ To start navigating the project:
 2. Open the `Login.html` file in a web browser to access the login page. (You must be connected with the internet)
 3. Follow the prompts to explore different features.
 
+npm start
+Open http://localhost:3000 to view it in your browser.
+
 [Video Usage Demonstration on YouTube](https://youtu.be/JynRUOfu3PY) 
 
 ## Support
 
 For any doubts or problems, please contact us at [25708@student.dorset-college.ie](mailto:25708@student.dorset-college.ie).
+
+## License
+
+Name: Marcelo F. Neto
+Student Number: 25708
+Web Name: Hi-life Arena
 
