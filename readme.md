@@ -24,7 +24,7 @@ clearer idea of what their seat will be like and their vision for the stage.
 - Back-end: JavaScript
 - Database: Firebase
 
-## Features
+## Main Features
 
 - 3D seat selection
 - User authentication
@@ -59,7 +59,6 @@ To start navigating the project:
 2. Open the `Login.html` file in a web browser to access the login page. (You must be connected with the internet)
 3. Follow the prompts to explore different features.
 
-npm start
 Open http://localhost:3000 to view it in your browser.
 
 [Video Usage Demonstration on YouTube](https://youtu.be/JynRUOfu3PY) 
@@ -73,4 +72,34 @@ For any doubts or problems, please contact us at [25708@student.dorset-college.i
 Name: Marcelo F. Neto
 Student Number: 25708
 Web Name: Hi-life Arena
+
+
+## Additional Information
+
+Project completed!
+
+
+
+## Contributions:
+
+This project utilizes the following platforms and resources:
+
+
+-[Sketchup](https://www.sketchup.com)
+-[VsCode](https://code.visualstudio.com/)
+-[GoogleFonts]( https://fonts.google.com/)
+-[Firebase](https://firebase.google.com/)
+-[Github](https://github.com)
+-[Canva](https://www.canva.com/)
+-[Font Awesome](https://fontawesome.com)
+-[Munnelly](https://www.munnelly.com)
+-[Youtube](https://www.youtube.com)
+-[Beyonce.com](https://Beyonce.com)
+-[ArianaGrande.com](https://ArianaGrande.com)
+-[SimplePlan.com](https://SimplePlan.com)
+-[Wikipedia](https://www.wikipedia.org/)
+-[Stack Overflow](https://stackoverflow.com)
+-[OpenAi](https://chat.openai.com)
+-[Lunevedy](https://lunevedy.com)
+
 
