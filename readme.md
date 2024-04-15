@@ -59,9 +59,16 @@ To start navigating the project:
 2. Open the `Login.html` file in a web browser to access the login page. (You must be connected with the internet)
 3. Follow the prompts to explore different features.
 
-Open http://localhost:3000 to view it in your browser.
+ It is highly recommended to open the project [ (start-->) 'login.html' page ] using **Live Server** on Visual Studio Code / Open http://localhost:3000 XXX  to view it in your browser
+
+You should also have Node.js installed  
+
+## Demonstration
 
 [Video Usage Demonstration on YouTube](https://youtu.be/JynRUOfu3PY) 
+
+
+![YouTube Demosntration video](assets/img/Visuals/YT.png)
 
 ## Support
 
