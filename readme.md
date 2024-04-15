@@ -42,7 +42,7 @@ clearer idea of what their seat will be like and their vision for the stage.
 ![View1](assets/img/Visuals/Arena1.png)
 ![View2](assets/img/Visuals/Arena2.png)
 ![View3](assets/img/Visuals/Arena3.png)
-![View4](assets/img/Visuals/Arena3.png)
+![View4](assets/img/Visuals/Arena4.png)
 ![Purchase Page](assets/img/Visuals/Purchased.png)
 ![Change Password](assets/img/Visuals/changepass.png)
 ![Ariana Page](assets/img/Visuals/AGpage.png)
