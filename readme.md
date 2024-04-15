@@ -69,9 +69,10 @@ For any doubts or problems, please contact us at [25708@student.dorset-college.i
 
 ## License
 
-Name: Marcelo F. Neto
-Student Number: 25708
-Web Name: Hi-life Arena
+- Name: Marcelo F. Neto
+- Student Number: 25708
+- Dorset College Computing in Science Bsc
+- Project Name: Hi-life Arena
 
 
 ## Additional Information
@@ -85,21 +86,21 @@ Project completed!
 This project utilizes the following platforms and resources:
 
 
--[Sketchup](https://www.sketchup.com)
--[VsCode](https://code.visualstudio.com/)
--[GoogleFonts]( https://fonts.google.com/)
--[Firebase](https://firebase.google.com/)
--[Github](https://github.com)
--[Canva](https://www.canva.com/)
--[Font Awesome](https://fontawesome.com)
--[Munnelly](https://www.munnelly.com)
--[Youtube](https://www.youtube.com)
--[Beyonce.com](https://Beyonce.com)
--[ArianaGrande.com](https://ArianaGrande.com)
--[SimplePlan.com](https://SimplePlan.com)
--[Wikipedia](https://www.wikipedia.org/)
--[Stack Overflow](https://stackoverflow.com)
--[OpenAi](https://chat.openai.com)
--[Lunevedy](https://lunevedy.com)
+- [Sketchup](https://www.sketchup.com)
+- [VsCode](https://code.visualstudio.com/)
+- [GoogleFonts]( https://fonts.google.com/)
+- [Firebase](https://firebase.google.com/)
+- [Github](https://github.com)
+- [Canva](https://www.canva.com/)
+- [Font Awesome](https://fontawesome.com)
+- [Munnelly](https://www.munnelly.com)
+- [Youtube](https://www.youtube.com)
+- [Beyonce.com](https://Beyonce.com)
+- [ArianaGrande.com](https://ArianaGrande.com)
+- [SimplePlan.com](https://SimplePlan.com)
+- [Wikipedia](https://www.wikipedia.org/)
+- [Stack Overflow](https://stackoverflow.com)
+- [OpenAi](https://chat.openai.com)
+- [Lunevedy](https://lunevedy.com)
 
 
